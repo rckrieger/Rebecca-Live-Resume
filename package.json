@@ -8,10 +8,13 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.1.3",
     "bootswatch": "^5.1.3",
+    "d3-spider-chart": "^0.0.1",
+    "radarchart-node": "^1.0.7",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.0",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "react-svg-radar-chart": "^1.3.0",
     "vertical-timeline-component-react": "^2.1.2",
     "web-vitals": "^2.1.3"
   },

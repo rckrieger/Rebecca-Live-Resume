@@ -1,18 +1,64 @@
 import './App.css';
 import React, { Component } from 'react';
 import './App.css';
-import {NavItem, Nav, Row, Col} from "react-bootstrap";
+import {NavItem, Nav, Row, Col,Container, Tab} from "react-bootstrap";
 import KeyboardVideoFile from "./Media/UncroppedAppDemo.mov";
-
+import RadarChart from 'react-svg-radar-chart';
+import 'react-svg-radar-chart/build/css/index.css'
 import {
     Timeline,
-    Container,
+    Container as TimelineContainer,
     YearContent,
     BodyContent,
     Section,
     Description,
 } from 'vertical-timeline-component-react';
 
+const data = [
+    {
+        data: {
+            java: 0.9,
+            mobileDev: 0.5,
+            webDev: 0.7,
+            windowsDev: 0.6,
+            mixedReality: 0.5
+        },
+        meta: { color: 'red' }
+    }
+];
+
+//my areas of expertise,
+const captions = {
+    // columns
+    webDev: 'WebDev (ReactJS + HTML)',
+    mixedReality: 'Mixed Reality',
+    windowsDev: 'Windows Development (Win32 + UWP)',
+    mobileDev: 'Mobile Development (SwiftUI + UIKit)',
+    java: 'Java Middleware'
+};
+
+const softdata = [
+    {
+        data: {
+            specWriting: 0.9,
+            marketResearching: 0.8,
+            conferenceSpeaking: 1,
+            emailWriting: 0.7,
+            speakingDev: 0.7
+        },
+        meta: { color: 'red' }
+    }
+];
+
+//my areas of expertise,
+const softcaptions = {
+    // columns
+    specWriting: 'Spec Writing',
+    marketResearching: 'Market Researching',
+    conferenceSpeaking: 'Conference Speaking',
+    emailWriting: 'Email Writing',
+    speakingDev: 'Speaking Dev'
+};
 
 const TABS = [
     {name: "Home"},
@@ -71,7 +117,7 @@ class HomeDisplay extends Component {
 class MSFTPM1 extends Component {
     render() {
         return(
-            <Container>
+            <TimelineContainer>
                 <YearContent startDate='2019/08/05' currentYear />
                 <BodyContent>
                     <Section title='Microsoft - Program Manager 1'>
@@ -87,7 +133,7 @@ class MSFTPM1 extends Component {
                             </Row>
                     </Section>
                 </BodyContent>
-            </Container>
+            </TimelineContainer>
         );
     }
 }
@@ -95,7 +141,7 @@ class MSFTPM1 extends Component {
 class MSFTPMIntern extends Component {
     render() {
         return(
-            <Container>
+            <TimelineContainer>
                 <YearContent startDate='2018/06/14' endDate= '2018/09/05'/>
                 <BodyContent>
                     <Section title='Microsoft - Program Manager Intern'>
@@ -104,7 +150,7 @@ class MSFTPMIntern extends Component {
                         <Description text='Another description' />
                     </Section>
                 </BodyContent>
-            </Container>
+            </TimelineContainer>
         );
     }
 }
@@ -112,7 +158,7 @@ class MSFTPMIntern extends Component {
 class GoDaddy extends Component {
     render() {
         return(
-            <Container>
+            <TimelineContainer>
                 <YearContent startDate='2017/06/14' endDate= '2017/09/05'/>
                 <BodyContent>
                     <Section title='GoDaddy - Mobile Development Intern'>
@@ -121,7 +167,7 @@ class GoDaddy extends Component {
                         <Description text='Another description' />
                     </Section>
                 </BodyContent>
-            </Container>
+            </TimelineContainer>
         );
     }
 }
@@ -130,7 +176,7 @@ class GoDaddy extends Component {
 class Apple extends Component {
     render() {
         return(
-            <Container>
+            <TimelineContainer>
                 <YearContent startDate='2017/04/02' endDate= '2017/06/12'/>
                 <BodyContent>
                     <Section title='Apple - SWE Intern'>
@@ -139,14 +185,14 @@ class Apple extends Component {
                         <Description text='Another description' />
                     </Section>
                 </BodyContent>
-            </Container>
+            </TimelineContainer>
         );
     }
 }
 class MSFTExploreIntern extends Component {
     render() {
         return(
-            <Container>
+            <TimelineContainer>
                 <YearContent startDate='2016/06/14' endDate= '2016/09/05'/>
                 <BodyContent>
                     <Section title='Microsoft - Explore Intern'>
@@ -155,14 +201,14 @@ class MSFTExploreIntern extends Component {
                         <Description text='Another description' />
                     </Section>
                 </BodyContent>
-            </Container>
+            </TimelineContainer>
         );
     }
 }
 class Ancestry extends Component {
     render() {
         return(
-            <Container>
+            <TimelineContainer>
                 <YearContent startDate='2015/06/14' endDate= '2015/09/05'/>
                 <BodyContent>
                     <Section title='Ancestry - Back-End Development Intern'>
@@ -171,7 +217,7 @@ class Ancestry extends Component {
                         <Description text='Another description' />
                     </Section>
                 </BodyContent>
-            </Container>
+            </TimelineContainer>
         );
     }
 }
@@ -196,6 +242,36 @@ class WorkDisplay extends  Component{
 }
 
 
+class SoftSkills extends Component {
+    render () {
+        return (
+            <div>
+                <h1>What I do</h1>
+                <RadarChart
+                    captions={softcaptions}
+                    data={softdata}
+                    size={450}
+                />
+            </div>
+        );
+    }
+}
+
+
+class TechnicalSkills extends Component {
+   render () {
+        return (
+            <div>
+                <h1>What I know</h1>
+                <RadarChart
+                    captions={captions}
+                    data={data}
+                    size={450}
+                />
+            </div>
+        );
+    }
+}
 
 class TabDisplay extends Component {
     render() {
@@ -207,6 +283,18 @@ class TabDisplay extends Component {
             case "Work":
                 return (
                     <WorkDisplay></WorkDisplay>
+                );
+            case "Skills":
+                return (
+                    <Container>
+
+                            <Col>
+                                <SoftSkills></SoftSkills>
+                            </Col>
+                            <Col>
+                                <TechnicalSkills></TechnicalSkills>
+                            </Col>
+                    </Container>
                 );
             default:
                 return (
