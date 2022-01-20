@@ -57,12 +57,12 @@ class KeyBoardVideo extends Component {
 class HomeDisplay extends Component {
     render() {
         return(
-            <div>
+            <div className={"home"}>
                 <Container>
                     <Col>
-                    <Row><h1>{MOTTO}</h1></Row>
-                    <Row><h2>{MOTTOCREDIT}</h2></Row>
-                    <Row><h3>{BIO}</h3></Row>
+                        <Row><h1>{MOTTO}</h1></Row>
+                        <Row><h2>{MOTTOCREDIT}</h2></Row>
+                        <Row><h3>{BIO}</h3></Row>
                     </Col>
                 </Container>
             </div>
@@ -84,8 +84,14 @@ class MSFTPM1 extends Component {
                         <Description variant='subtitle' text='Developer Ecosystem and Platforms Team' />
                             <Row>
                                 <Col>
-                                    <Description text='Description' />
-                                    <Description text='Another description' />
+                                    <text>Contributions</text>
+                                    <ul>
+                                        <li>test</li>
+                                    </ul>
+                                    <text >Learnings</text>
+                                    <ul>
+                                        <li>test</li>
+                                    </ul>
                                 </Col>
                                 <Col>
                                     <KeyBoardVideo></KeyBoardVideo>
