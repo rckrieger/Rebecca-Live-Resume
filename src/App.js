@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import './App.css';
-import {NavItem, Nav, Row, Col,Container, Tab} from "react-bootstrap";
+import {NavItem, Nav, Row, Col,Container, Tab, Tabs} from "react-bootstrap";
 import KeyboardVideoFile from "./Media/UncroppedAppDemo.mov";
 import RadarChart from 'react-svg-radar-chart';
 import 'react-svg-radar-chart/build/css/index.css'
@@ -14,51 +14,7 @@ import {
     Description,
 } from 'vertical-timeline-component-react';
 
-const data = [
-    {
-        data: {
-            java: 0.9,
-            mobileDev: 0.5,
-            webDev: 0.7,
-            windowsDev: 0.6,
-            mixedReality: 0.5
-        },
-        meta: { color: 'red' }
-    }
-];
 
-//my areas of expertise,
-const captions = {
-    // columns
-    webDev: 'WebDev (ReactJS + HTML)',
-    mixedReality: 'Mixed Reality',
-    windowsDev: 'Windows Development (Win32 + UWP)',
-    mobileDev: 'Mobile Development (SwiftUI + UIKit)',
-    java: 'Java Middleware'
-};
-
-const softdata = [
-    {
-        data: {
-            specWriting: 0.9,
-            marketResearching: 0.8,
-            conferenceSpeaking: 1,
-            emailWriting: 0.7,
-            speakingDev: 0.7
-        },
-        meta: { color: 'red' }
-    }
-];
-
-//my areas of expertise,
-const softcaptions = {
-    // columns
-    specWriting: 'Spec Writing',
-    marketResearching: 'Market Researching',
-    conferenceSpeaking: 'Conference Speaking',
-    emailWriting: 'Email Writing',
-    speakingDev: 'Speaking Dev'
-};
 
 const TABS = [
     {name: "Home"},
@@ -102,9 +58,13 @@ class HomeDisplay extends Component {
     render() {
         return(
             <div>
-                <h1>{MOTTO}</h1>
-                <h2>{MOTTOCREDIT}</h2>
-                <h3>{BIO}</h3>
+                <Container>
+                    <Col>
+                    <Row><h1>{MOTTO}</h1></Row>
+                    <Row><h2>{MOTTOCREDIT}</h2></Row>
+                    <Row><h3>{BIO}</h3></Row>
+                    </Col>
+                </Container>
             </div>
         );
     }
@@ -241,7 +201,49 @@ class WorkDisplay extends  Component{
     }
 }
 
+const data = [
+    {
+        data: {
+            java: 0.9,
+            mobileDev: 0.5,
+            webDev: 0.7,
+            windowsDev: 0.6,
+            mixedReality: 0.5
+        },
+        meta: { color: 'red' }
+    }
+];
 
+
+//Skills section - consider rephrasing to "areas of expertise"
+const captions = {
+    // columns
+    webDev: 'WebDev (ReactJS + HTML)',
+    mixedReality: 'Mixed Reality',
+    windowsDev: 'Windows Development (Win32 + UWP)',
+    mobileDev: 'Mobile Development (SwiftUI + UIKit)',
+    java: 'Java Middleware'
+};
+const softdata = [
+    {
+        data: {
+            specWriting: 0.9,
+            marketResearching: 0.8,
+            conferenceSpeaking: 1,
+            emailWriting: 0.7,
+            speakingDev: 0.7
+        },
+        meta: { color: 'red' }
+    }
+];
+const softcaptions = {
+    // columns
+    specWriting: 'Spec Writing',
+    marketResearching: 'Market Researching',
+    conferenceSpeaking: 'Conference Speaking',
+    emailWriting: 'Email Writing',
+    speakingDev: 'Speaking Dev'
+};
 class SoftSkills extends Component {
     render () {
         return (
@@ -256,8 +258,6 @@ class SoftSkills extends Component {
         );
     }
 }
-
-
 class TechnicalSkills extends Component {
    render () {
         return (
@@ -273,6 +273,18 @@ class TechnicalSkills extends Component {
     }
 }
 
+
+class Contact extends Component {
+    render () {
+        return (
+            <div>
+                <h4>Reach out to me on LinkedIn</h4>
+            </div>
+        );
+    }
+}
+
+//App Nav parts should change tabd
 class TabDisplay extends Component {
     render() {
         switch (this.props.name) {
@@ -287,13 +299,14 @@ class TabDisplay extends Component {
             case "Skills":
                 return (
                     <Container>
-
+                        <Row>
                             <Col>
                                 <SoftSkills></SoftSkills>
                             </Col>
                             <Col>
                                 <TechnicalSkills></TechnicalSkills>
                             </Col>
+                        </Row>
                     </Container>
                 );
             default:
@@ -303,9 +316,6 @@ class TabDisplay extends Component {
         }
     }
 }
-
-
-
 class App extends Component {
     constructor() {
         super();
@@ -317,17 +327,17 @@ class App extends Component {
         const activePlace = this.state.activePlace;
         return (
             <div>
-                <ul class = "nav nav-tabs">
+                <Nav activeKey="/home">
                     {TABS.map((tab, index) => (
-                        <button class="nav-item"
-                                onClick={() => {
-                                    this.setState({ activePlace: index });
-                                }}
+                        <Nav.Item
+                            onClick={() => {
+                                this.setState({ activePlace: index });
+                            }}
                         >
-                            <a class="nav-link" key={index} eventKey={index}>{tab.name}</a>
-                        </button>
+                            <Nav.Link key={index} eventKey={index}>{tab.name}</Nav.Link>
+                        </Nav.Item>
                     ))}
-                </ul>
+                </Nav>
                 <TabDisplay
                     key={activePlace}
                     name={TABS[activePlace].name}
