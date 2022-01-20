@@ -72,7 +72,31 @@ class HomeDisplay extends Component {
 
 
 
+class JobDescription extends Component {
+    render() {
+        switch (this.props.name) {
+            case "Home":
+                return (
+                    <HomeDisplay></HomeDisplay>
+                );
+            default:
+                return (
+                    <WorkDisplay></WorkDisplay>
+                );
+        }
+    }
+}
 
+
+const SOFTKEY = "You know when you are using a Windows device or an iPhone in touch mode and the virtual keyboard " +
+    "pops up? We call it a SIP (Software Input Panel). One project I led was improving the animation of the SIP. " +
+    "In Windows 10, when you pulled up the SIP and the app window had to hop out of the way, their movements weren't" +
+    " in sync. This was an okay design back when touch was new, but now that users are accustomed to the seamless " +
+    "popping up of the sip on their iPhone, ours just looked wonky. By changing the eventing model we were able to " +
+    "sync the animation of the app window with the keyboard, giving users a more delightful experience. Right now " +
+    "our solution is limited to input pane aware apps (mostly UWPs), but V2 will fix the animation for unaware apps " +
+    "too. I was responsible for spec writing, leading weekly syncs between my dev team and a partner team in Tokyo, " +
+    "and tracking the work in ADO (Microsoft's alternative to jira). "
 // Double check the dates
 class MSFTPM1 extends Component {
     render() {
@@ -84,11 +108,13 @@ class MSFTPM1 extends Component {
                         <Description variant='subtitle' text='Developer Ecosystem and Platforms Team' />
                             <Row>
                                 <Col>
-                                    <text>Contributions</text>
+                                    <h4>Software Keyboard</h4>
+                                    <text>{SOFTKEY}</text>
+                                    <text>Impact</text>
                                     <ul>
                                         <li>test</li>
                                     </ul>
-                                    <text >Learnings</text>
+                                    <text>Learnings</text>
                                     <ul>
                                         <li>test</li>
                                     </ul>
@@ -284,7 +310,9 @@ class Contact extends Component {
     render () {
         return (
             <div>
-                <h4>Reach out to me on LinkedIn</h4>
+                <h4>{"Reach out to me on "}
+                <a href="https://www.linkedin.com/in/rckrieger/" target="_blank">Linkedin</a>
+                </h4>
             </div>
         );
     }
@@ -314,6 +342,10 @@ class TabDisplay extends Component {
                             </Col>
                         </Row>
                     </Container>
+                );
+            case "Contact":
+                return (
+                    <Contact></Contact>
                 );
             default:
                 return (
