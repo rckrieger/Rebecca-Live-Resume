@@ -5,14 +5,7 @@ import {NavItem, Nav, Row, Col,Container, Tab, Tabs} from "react-bootstrap";
 import KeyboardVideoFile from "./Media/UncroppedAppDemo.mov";
 import RadarChart from 'react-svg-radar-chart';
 import 'react-svg-radar-chart/build/css/index.css'
-import {
-    Timeline,
-    Container as TimelineContainer,
-    YearContent,
-    BodyContent,
-    Section,
-    Description,
-} from 'vertical-timeline-component-react';
+import {Timeline, Container as TimelineContainer, YearContent, BodyContent, Section, Description,} from 'vertical-timeline-component-react';
 
 
 
@@ -32,28 +25,6 @@ const BIO = "I love working on products that make people’s eyes light up. I’
     "design APIs for Windows at MSFT and was a SWE intern at Apple. My real passion is in HCI, " +
     "especially accessibility and mixed reality. In college, I double majored in Software Engineering and Psychology." +
     " Psych gave me a lens to understand users’ problems. Software engineering gave me a tool kit to solve them.\n"
-
-//Work
-const customTheme = {
-    yearColor: '#405b73',
-    lineColor: '#d0cdc4',
-    dotColor: '#262626',
-    borderDotColor: '#d0cdc4',
-    titleColor: '#405b73',
-    subtitleColor: '#bf9765',
-    textColor: '#262626',
-};
-
-class KeyBoardVideo extends Component {
-    render () {
-        return(
-                <video width="221" height="480" controls autoPlay loop muted>
-                    <source src={KeyboardVideoFile}/>
-                </video>
-        );
-    }
-}
-
 class HomeDisplay extends Component {
     render() {
         return(
@@ -70,6 +41,25 @@ class HomeDisplay extends Component {
     }
 }
 
+//Work
+const customTheme = {
+    yearColor: '#405b73',
+    lineColor: '#d0cdc4',
+    dotColor: '#262626',
+    borderDotColor: '#d0cdc4',
+    titleColor: '#405b73',
+    subtitleColor: '#bf9765',
+    textColor: '#262626',
+};
+class KeyBoardVideo extends Component {
+    render () {
+        return(
+                <video width="221" height="480" controls autoPlay loop muted>
+                    <source src={KeyboardVideoFile}/>
+                </video>
+        );
+    }
+}
 
 
 class JobDescription extends Component {
@@ -104,7 +94,7 @@ class MSFTPM1 extends Component {
             <TimelineContainer>
                 <YearContent startDate='2019/08/05' currentYear />
                 <BodyContent>
-                    <Section title='Microsoft - Program Manager 1'>
+                    <Section title='Microsoft - Program Manager 1' font-size="+200 !important">
                         <Description variant='subtitle' text='Developer Ecosystem and Platforms Team' />
                             <Row>
                                 <Col>
@@ -233,6 +223,9 @@ class WorkDisplay extends  Component{
     }
 }
 
+
+
+//Skills section - consider rephrasing to "areas of expertise"
 const data = [
     {
         data: {
@@ -245,9 +238,6 @@ const data = [
         meta: { color: 'red' }
     }
 ];
-
-
-//Skills section - consider rephrasing to "areas of expertise"
 const captions = {
     // columns
     webDev: 'WebDev (ReactJS + HTML)',
