@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 import './App.css';
 import {NavItem, Nav, Row, Col,Container, Tab, Tabs} from "react-bootstrap";
 import KeyboardVideoFile from "./Media/UncroppedAppDemo.mov";
+import MoodBandVideoFile from "./Media/Moodband.mp4";
+import CodeCadetsVideoFile from "./Media/CodeCadetsDance.mp4";
+import ChickenDanceVideoFile from "./Media/chickendance.MOV";
 import RadarChart from 'react-svg-radar-chart';
 import 'react-svg-radar-chart/build/css/index.css'
 import {Timeline, Container as TimelineContainer, YearContent, BodyContent, Section, Description,} from 'vertical-timeline-component-react';
-
+import Project from "./Project";
 
 
 const TABS = [
@@ -204,12 +207,63 @@ class Ancestry extends Component {
     }
 }
 
+var codeCadets = {
+    name: "Code Cadets",
+    year: "2016",
+    media: "CodeCadetsVideoFile",
+    description: "When I was researching Seattle to prepare for my Microsoft internship I noticed the area " +
+        "had many free high school camps but very few middle school ones, and being a tech hub the city had an " +
+        "abundance of interns who could code. So I thought why not give the interns the opportunity to teach and " +
+        "the girls the opportunity to learn to code this summer? I teamed up with interns from Microsoft, Amazon, " +
+        "and Google interns to teach 40 girls and allies C# over the course of 7 Saturdays " +
+        ". What made the camp unique was besides being the only free coding camp " +
+        "for middle schoolers in the area, we introduced the students to full time engineers and PMs who are thriving" +
+        " in tech via the Q&As so the girls could see that they could grow up to succeed too.",
+    link: "https://rckrieger.github.io/SeniorProjectPortfolio/",
+    impact: "Before the camp started I surveyed students about their skills, experiences, and perceptions of " +
+        "computer science. Tellingly, when asked \"What are 3 words you think of when you think of " +
+        "computer science?\", answers included \"geeks, boys, nerds\" and \"difficult strategetic sciencey\". " +
+        "Fortunately, when we informally surved them at the last camp session, most said it was more fun than they " +
+        "expected. Students also metioned their favorite part was meeting local women in tech they could look up to. " +
+        "Although some had parents in engineering, many of the girls reported not knowing anyone who looked like them " +
+        "succeeding in the industry before the camp began. Pacific science center reached out to ask if we would be " +
+        "interested in running the camp through them the summer after. Although flattered, we turned them down " +
+        "because all of the non-graduating interns thought it would be too much work to manage.",
+    skills: ["Effective communication",
+        "Setting success criteria",
+        "Grant writing and budgeting"]
+};
+
+class ProjectsDisplay extends  Component{
+    render() {
+        return(
+            <div>
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <h1>Projects</h1>
+                </div>
+                <Project project = {codeCadets}/>
+            </div>
+        );
+    }
+}
+
+
+
 
 class WorkDisplay extends  Component{
     render() {
         return(
             <div>
-                <h1>Work History</h1>
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <h1>Work History</h1>
+                </div>
+
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <text font-size="9"><i>Apologies for the odd font sizes, the timeline and its CSS is from an npm library w/o
+                    parameters for font size and it won't recompile with my CSS changes.
+                    </i>
+                    </text>
+                </div>
                 <Timeline theme={customTheme} dateFormat='ll'>
                     <MSFTPM1></MSFTPM1>
                     <MSFTPMIntern></MSFTPMIntern>
@@ -336,6 +390,10 @@ class TabDisplay extends Component {
             case "Contact":
                 return (
                     <Contact></Contact>
+                );
+            case "Projects":
+                return (
+                    <ProjectsDisplay></ProjectsDisplay>
                 );
             default:
                 return (
