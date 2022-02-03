@@ -172,7 +172,8 @@ class App extends Component {
         const activePlace = this.state.activePlace;
         return (
             <div class={"Nav"}>
-                <Navbar className='shadow-0'>
+                <Navbar className='shadow-0'
+                        >
                 <Nav activeKey="/home">
                     {TABS.map((tab, index) => (
                         <Nav.Item

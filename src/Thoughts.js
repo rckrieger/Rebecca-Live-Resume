@@ -39,8 +39,10 @@ class WhatIamlookingFor extends Component {
                         momentum for them.</li>
                     <li>In an ideal situation, I'd prefer to work from Seattle at least through Summer 2023
                         and then transition to the Bay or NY.</li>
+                    <li>I'd like to work on a product I use. I understand its important to the user and yourself
+                        separate, but I'd love to work on a product I use everyday.</li>
                 </ol>
-                <div body-color = {"#d9534f"}>
+                <div>
                 <h5>
                     Won't have
                 </h5>
