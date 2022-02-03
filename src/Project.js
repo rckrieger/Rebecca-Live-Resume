@@ -9,7 +9,6 @@ import Pointing from "./Media/CCpoints.jpg"
 import GodotVideo from "./Media/GodotVideo.mp4"
 
 
-
 class MediaPart extends Component {
 
     render() {
