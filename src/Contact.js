@@ -60,7 +60,7 @@ class Contact extends Component {
                                 <Card.Img variant="top" src={Medium} />
                                 <Card.Body>
                                     <Card.Text>
-                                        <h4>{"Read what I'm have to say on \n"}
+                                        <h4>{"Read what I have to say on \n"}
                                             <a href="https://medium.com/@rckrieger" rel="noreferrer"
                                                target="_blank">Medium</a>
                                         </h4>
