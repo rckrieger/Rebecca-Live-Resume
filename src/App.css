@@ -95,6 +95,17 @@
   }
 }
 
+.thoughts {
+  font-family: "Nunito Sans";
+}
+
+.thoughts-h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .home {
   text-align: center;
   padding-top: 120px;
@@ -132,6 +143,7 @@
   display: flex;
   white-space: nowrap;
   justify-content: center;
+  align-content: center;
 }
 .skills-h1 {
    padding-left: 60px;
@@ -247,6 +259,7 @@
 }
 
 .navbar {
+  shadow:0;
   position: relative;
   display: -ms-flexbox;
   display: flex;

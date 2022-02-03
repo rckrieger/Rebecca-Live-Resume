@@ -1,19 +1,13 @@
 import './App.css';
 import React, { Component } from 'react';
-import {NavItem, Navbar, Nav, Row, Col,Container, Tab, Tabs} from "react-bootstrap";
-import KeyboardVideoFile from "./Media/UncroppedAppDemo.mov";
-import MoodBandVideoFile from "./Media/Moodband.mp4";
-import CodeCadetsVideoFile from "./Media/CodeCadetsDance.mp4";
-import ChickenDanceVideoFile from "./Media/chickendance.MOV";
-import RadarChart from 'react-svg-radar-chart';
+import {Navbar, Nav} from "react-bootstrap";
 import 'react-svg-radar-chart/build/css/index.css'
-import Animation from "./Media/Animation.pdf";
 
 import Work from "./Work";
 import Home from "./Home";
 import Project from "./Project";
 import Skills from "./Skills";
-
+import Thoughts from "./Thoughts";
 import Contact from "./Contact";
 
 const TABS = [
@@ -69,10 +63,22 @@ var godot = {
         "Game development"]
 };
 
+var conference = {
+    name: "Conference Speaking",
+    year: "2017-2019",
+    media: "GHCSpeaker",
+    link: null,
+    description: "I have spoken at GHC (twice!), Tapia, and SoCal CWIC on different tech ethics topics. " +
+        "Although I normally speak on disability and tech, I've also spoken on privacy for online dating and for VR.",
+    impact: "I'm comfortable speaking in front of large crowds",
+    skills: ["Conference Speaking", "Accessibility awareness"]
+};
+
 var moodband = {
     name: "Moodband",
     year: "2016",
-    media: "Moodband",
+    link: null,
+    media: "MoodBandVideoFile",
     description: "As a kid, I had no filter. This was hard on friendships, so for AT&T's " +
         "Hackathon, I worked on a wearable bracelet to help wearers read the room. It used colors to signal when a " +
         "wearer so should be on alert or stop what they are saying, like a traffic signal. We used Watson APIs " +
@@ -109,7 +115,8 @@ class ProjectsDisplay extends  Component{
                 </div>
                 <Project project = {codeCadets}/>
                 <Project project = {godot}/>
-                <Project  project = {moodband}/>
+                <Project project = {conference}/>
+                <Project project = {moodband}/>
                 <Project project = {chicken}/>
             </div>
         );
@@ -143,6 +150,10 @@ class TabDisplay extends Component {
                 return (
                     <ProjectsDisplay></ProjectsDisplay>
                 );
+            case "Thoughts":
+                return (
+                    <Thoughts/>
+                );
             default:
                 return (
                     <h1>Displaying info for tab {this.props.name}</h1>
@@ -161,7 +172,7 @@ class App extends Component {
         const activePlace = this.state.activePlace;
         return (
             <div class={"Nav"}>
-                <Navbar>
+                <Navbar className='shadow-0'>
                 <Nav activeKey="/home">
                     {TABS.map((tab, index) => (
                         <Nav.Item

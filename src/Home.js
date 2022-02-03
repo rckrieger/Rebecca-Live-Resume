@@ -18,7 +18,8 @@ class Home extends Component {
                         <Row><h2>{MOTTOCREDIT}</h2></Row>
                         <Row><h3>{BIO}</h3></Row>
                         <Row>
-                            <img src = {LittleMermaid}/>
+                            <img src = {LittleMermaid}
+                                 alt = "The little mermaid's silhoutte but she's holding a laptop"/>
                         </Row>
                     </Col>
                 </Container>

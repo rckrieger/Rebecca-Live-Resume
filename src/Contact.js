@@ -1,12 +1,11 @@
 import './App.css';
 import React, { Component} from 'react';
-import {Card, Button, NavItem, Navbar, Nav, Row, Col,Container, Tab, Tabs} from "react-bootstrap";
+import {Card, Row, Col,Container} from "react-bootstrap";
 import 'react-svg-radar-chart/build/css/index.css'
 import LinkedIn from "./Media/LinkedinProfile.jpeg"
 import GithubPro from "./Media/GithubProfile.png"
 import Medium from "./Media/MediumProfile.jpeg"
-
-//import "bootswatch/dist/lux/bootstrap.css";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 
 class Contact extends Component {
     render () {
@@ -23,12 +22,14 @@ class Contact extends Component {
                             <Card style={{ width: '18rem' }}
                                   onClick={() => {
                                       window.open("https://www.linkedin.com/in/rckrieger/", "_blank")
-                                  }}>
+                                  }}
+                            >
                                 <Card.Img src={LinkedIn}/>
                                 <Card.Body>
                                     <Card.Text>
                                         <h4>{"Reach out to me on \n"}
-                                            <a href="https://www.linkedin.com/in/rckrieger/" target="_blank">Linkedin</a>
+                                            <a href="https://www.linkedin.com/in/rckrieger/" rel="noreferrer"
+                                               target="_blank">Linkedin</a>
                                         </h4>
                                     </Card.Text>
                                 </Card.Body>
@@ -43,7 +44,8 @@ class Contact extends Component {
                                 <Card.Body>
                                     <Card.Text>
                                         <h4>{"See what I'm building on \n"}
-                                            <a href="https://github.com/rckrieger" target="_blank">Github</a>
+                                            <a href="https://github.com/rckrieger" rel="noreferrer"
+                                               target="_blank">Github</a>
                                         </h4>
                                     </Card.Text>
                                 </Card.Body>
@@ -59,7 +61,8 @@ class Contact extends Component {
                                 <Card.Body>
                                     <Card.Text>
                                         <h4>{"Read what I'm have to say on \n"}
-                                            <a href="https://medium.com/@rckrieger" target="_blank">Medium</a>
+                                            <a href="https://medium.com/@rckrieger" rel="noreferrer"
+                                               target="_blank">Medium</a>
                                         </h4>
                                     </Card.Text>
                                 </Card.Body>

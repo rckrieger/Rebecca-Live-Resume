@@ -1,14 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { Component} from 'react';
 import "bootstrap/dist/css/bootstrap.css";
-import {NavItem, Nav, Row, Col,Container, Tab, Tabs} from "react-bootstrap";
+import {Row, Col} from "react-bootstrap";
 import KeyboardVideoFile from "./Media/UncroppedAppDemo.mov";
-import MoodBandVideoFile from "./Media/Moodband.mp4";
-import CodeCadetsVideoFile from "./Media/CodeCadetsDance.mp4";
-import ChickenDanceVideoFile from "./Media/chickendance.MOV";
-import Pointing from "./Media/CCpoints.jpg"
-import Animation from "./Media/Animation.pdf"
-import GodotVideo from "./Media/GodotVideo.mp4"
-import { Document, Page } from 'react-pdf';
 import {Timeline, Container as TimelineContainer, YearContent, BodyContent, Section, Description,} from 'vertical-timeline-component-react';
 
 
@@ -42,7 +35,7 @@ const SOFTKEY = "You know when you are using a Windows device or an iPhone in to
     "popping up of the sip on their iPhone, ours just looked wonky. By changing the eventing model we were able to " +
     "sync the animation of the app window with the keyboard, giving users a more delightful experience. Right now " +
     "our solution is limited to input pane aware apps (mostly UWPs), but a future release will fix the animation " +
-    "for unaware apps " + "too. I was responsible for spec writing, leading weekly syncs between my dev team and " +
+    "for unaware apps too. I was responsible for spec writing, leading weekly syncs between my dev team and " +
     "a partner team in Tokyo, and tracking the work in ADO (Microsoft's alternative to jira). "
 
 // Double check the dates
@@ -176,12 +169,12 @@ class Work extends  Component{
                     </text>
                 </div>
                 <Timeline theme={customTheme} dateFormat='ll'>
-                    <MSFTPM1></MSFTPM1>
-                    <MSFTPMIntern></MSFTPMIntern>
-                    <GoDaddy></GoDaddy>
-                    <Apple></Apple>
-                    <MSFTExploreIntern></MSFTExploreIntern>
-                    <Ancestry></Ancestry>
+                    <MSFTPM1/>
+                    <MSFTPMIntern/>
+                    <GoDaddy/>
+                    <Apple/>
+                    <MSFTExploreIntern/>
+                    <Ancestry/>
                 </Timeline>
             </div>
         );

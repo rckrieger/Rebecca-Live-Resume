@@ -1,14 +1,8 @@
 import {Col, Container, Row} from "react-bootstrap";
 import React, {Component} from "react";
 import './App.css';
-import KeyboardVideoFile from "./Media/UncroppedAppDemo.mov";
-import MoodBandVideoFile from "./Media/Moodband.mp4";
-import CodeCadetsVideoFile from "./Media/CodeCadetsDance.mp4";
-import ChickenDanceVideoFile from "./Media/chickendance.MOV";
 import RadarChart from 'react-svg-radar-chart';
 import 'react-svg-radar-chart/build/css/index.css'
-import Project from "./Project";
-import Animation from "./Media/Animation.pdf";
 
 
 //Skills section - consider rephrasing to "areas of expertise"
@@ -58,8 +52,9 @@ class SoftSkills extends Component {
             <div className={"skills"}>
                 <Container>
                     <Col>
+                        <div style={{alignItems: 'center'}}>
                         <Row>
-                            <h1>What I do</h1>
+                            <h1>What I Do</h1>
                         </Row>
                         <Row>
                             <RadarChart
@@ -68,6 +63,7 @@ class SoftSkills extends Component {
                                 size={450}
                             />
                         </Row>
+                        </div>
                     </Col>
                 </Container>
             </div>
@@ -104,10 +100,10 @@ class Skills extends Component {
             <Container>
                 <Row>
                     <Col>
-                        <SoftSkills></SoftSkills>
+                        <SoftSkills/>
                     </Col>
                     <Col>
-                        <TechnicalSkills></TechnicalSkills>
+                        <TechnicalSkills/>
                     </Col>
                 </Row>
             </Container>

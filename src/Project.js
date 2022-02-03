@@ -1,14 +1,12 @@
-import React, { Component, useState } from 'react';
+import React, { Component} from 'react';
 import "bootstrap/dist/css/bootstrap.css";
-import {NavItem, Nav, Row, Col,Container, Tab, Tabs} from "react-bootstrap";
-import KeyboardVideoFile from "./Media/UncroppedAppDemo.mov";
+import {Row, Col,Container} from "react-bootstrap";
 import MoodBandVideoFile from "./Media/Moodband.mp4";
 import CodeCadetsVideoFile from "./Media/CodeCadetsDance.mp4";
 import ChickenDanceVideoFile from "./Media/chickendance.MOV";
+import GHCSpeaker from "./Media/GHCspeaking19.jpeg";
 import Pointing from "./Media/CCpoints.jpg"
-import Animation from "./Media/Animation.pdf"
 import GodotVideo from "./Media/GodotVideo.mp4"
-import { Document, Page } from 'react-pdf';
 
 
 
@@ -42,7 +40,7 @@ class MediaPart extends Component {
                             </i>
                             </text>
                         </div>
-                    <img src = {Pointing} width="480" height="270"/>
+                    <img src = {Pointing} width="480" height="270" alt = "Two students pointing to a computer"/>
                         <div>
                             <text><i>
                                 Students working after their laptops arrived
@@ -62,9 +60,15 @@ class MediaPart extends Component {
             }
             case "Animation": {
                 return (
-                    <video width="480" height="270" controls  autoPlay loop muted>
+                    <video width="480" height="270" controls autoPlay loop muted>
                         <source src={GodotVideo}/>
                     </video>
+                );
+            }
+            case "GHCSpeaker": {
+                return (
+                    <img src={GHCSpeaker} width="480" height="270"
+                         alt = "3 women speaking at the Grace Hopper Celebration"/>
                 );
             }
             default:
@@ -81,16 +85,24 @@ class LinkPart extends Component {
         switch (this.props.link) {
             case null:
                 return (
-                    <div></div>
+                    <div/>
                 );
             case "null":
                 return (
-                    <div></div>
+                    <div/>
+                );
+            case "https://docs.google.com/document/d/1nc5umZIOnc9gYyEnCVwbTrlqJUyacRj9HJwXnfBkccU/edit?usp=sharing":
+                return (
+                    <div align="left">
+                        <h3>Link</h3>
+                        <a href={this.props.link} target="_blank" rel="noreferrer">Lesson Plan</a>
+                    </div>
                 );
             default:
                 return(
                     <div align="left">
-                        <a href={this.props.link} target="_blank">{this.props.link}</a>
+                        <h3>Link</h3>
+                        <a href={this.props.link} target="_blank" rel="noreferrer">{this.props.link}</a>
                     </div>)
                 ;
         }
@@ -114,7 +126,7 @@ class Project extends Component {
                 <Container>
                         <Col>
                             <Row>
-                                <div align="left">
+                                <div>
                                     <h3>About</h3>
                                     <p>{this.props.project.description}</p>
                                 </div>
@@ -139,6 +151,7 @@ class Project extends Component {
                                 </div>
                             </Row>
                         </Col>
+                        <Col sm={1}><div/></Col>
                         <Col>
                             <MediaPart media={this.props.project.media}/>
                         </Col>
