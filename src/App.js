@@ -1,16 +1,18 @@
 import './App.css';
 import React, { Component } from 'react';
-import './App.css';
-import {NavItem, Nav, Row, Col,Container, Tab, Tabs} from "react-bootstrap";
+import {NavItem, Navbar, Nav, Row, Col,Container, Tab, Tabs} from "react-bootstrap";
 import KeyboardVideoFile from "./Media/UncroppedAppDemo.mov";
 import MoodBandVideoFile from "./Media/Moodband.mp4";
 import CodeCadetsVideoFile from "./Media/CodeCadetsDance.mp4";
 import ChickenDanceVideoFile from "./Media/chickendance.MOV";
 import RadarChart from 'react-svg-radar-chart';
 import 'react-svg-radar-chart/build/css/index.css'
+import LittleMermaid from "./Media/LMdraft.png";
 import {Timeline, Container as TimelineContainer, YearContent, BodyContent, Section, Description,} from 'vertical-timeline-component-react';
 import Project from "./Project";
 
+import Animation from "./Media/Animation.pdf";
+//import "bootswatch/dist/lux/bootstrap.css";
 
 const TABS = [
     {name: "Home"},
@@ -24,19 +26,22 @@ const TABS = [
 // Home
 const MOTTO = "“I want to be where the people are”\n"
 const MOTTOCREDIT = "The Little Mermaid, and me building products \n"
-const BIO = "I love working on products that make people’s eyes light up. I’m a technical PM by experience - I " +
+const BIO = "I love working on products that make people’s eyes light up. I’m a technical PM by experience; I " +
     "design APIs for Windows at MSFT and was a SWE intern at Apple. My real passion is in HCI, " +
     "especially accessibility and mixed reality. In college, I double majored in Software Engineering and Psychology." +
     " Psych gave me a lens to understand users’ problems. Software engineering gave me a tool kit to solve them.\n"
 class HomeDisplay extends Component {
     render() {
         return(
-            <div className={"home"}>
+            <div class={"home"}>
                 <Container>
                     <Col>
                         <Row><h1>{MOTTO}</h1></Row>
                         <Row><h2>{MOTTOCREDIT}</h2></Row>
                         <Row><h3>{BIO}</h3></Row>
+                        <Row>
+                            <img src = {LittleMermaid}/>
+                        </Row>
                     </Col>
                 </Container>
             </div>
@@ -87,9 +92,10 @@ const SOFTKEY = "You know when you are using a Windows device or an iPhone in to
     " in sync. This was an okay design back when touch was new, but now that users are accustomed to the seamless " +
     "popping up of the sip on their iPhone, ours just looked wonky. By changing the eventing model we were able to " +
     "sync the animation of the app window with the keyboard, giving users a more delightful experience. Right now " +
-    "our solution is limited to input pane aware apps (mostly UWPs), but V2 will fix the animation for unaware apps " +
-    "too. I was responsible for spec writing, leading weekly syncs between my dev team and a partner team in Tokyo, " +
-    "and tracking the work in ADO (Microsoft's alternative to jira). "
+    "our solution is limited to input pane aware apps (mostly UWPs), but a future release will fix the animation " +
+    "for unaware apps " + "too. I was responsible for spec writing, leading weekly syncs between my dev team and " +
+    "a partner team in Tokyo, and tracking the work in ADO (Microsoft's alternative to jira). "
+
 // Double check the dates
 class MSFTPM1 extends Component {
     render() {
@@ -234,14 +240,43 @@ var codeCadets = {
         "Grant writing and budgeting"]
 };
 
+var godot = {
+    name: "Godot Game Development Workshop",
+    year: "2019",
+    media: "Animation",
+    description: "My college’s game development professor wanted to pilot a new gaming engine to use in his " +
+        "classes. As a member of the Game development club, I volunteered to make experiment with the engine, " +
+        "identify common onboarding problems and create a sample lab he could tweak for his intro to game development class.",
+    link: "https://docs.google.com/document/d/1nc5umZIOnc9gYyEnCVwbTrlqJUyacRj9HJwXnfBkccU/edit?usp=sharing",
+    impact: "I created a lab that clearly explains how to build a game with Godot. The lab also articulates pitfalls " +
+        "to avoid and explains when to use which element.",
+    skills: ["Technical documentation writing",
+        "Lesson plan building",
+        "Game development"]
+};
+
+var chicken = {
+    name: "Chicken Dance Robot",
+    year: "2014",
+    media: "ChickenDanceVideoFile",
+    description: "After I finished my lab early, I reprogrammed my scribbler bot to do the chicken dance when it" +
+        " perceives it hit an obstacle. The collision detection was done with a light sensor. The tune was done with pure grit " +
+        "and imagination.",
+    link: null,
+    impact: "The robot dances. It is cute.",
+    skills: ["Robotics"]
+};
+
 class ProjectsDisplay extends  Component{
     render() {
         return(
-            <div>
+            <div className={"projects"}>
                 <div style={{display: 'flex', justifyContent: 'center'}}>
                     <h1>Projects</h1>
                 </div>
                 <Project project = {codeCadets}/>
+                <Project project = {godot}/>
+                <Project project = {chicken}/>
             </div>
         );
     }
@@ -253,13 +288,13 @@ class ProjectsDisplay extends  Component{
 class WorkDisplay extends  Component{
     render() {
         return(
-            <div>
-                <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div className={"work"}>
+                <div className={"work-head"}>
                     <h1>Work History</h1>
                 </div>
 
                 <div style={{display: 'flex', justifyContent: 'center'}}>
-                    <text font-size="9"><i>Apologies for the odd font sizes, the timeline and its CSS is from an npm library w/o
+                    <text font-size="9"><i>Apologies for the odd font sizes, the timeline and its CSS are from an npm library w/o
                     parameters for font size and it won't recompile with my CSS changes.
                     </i>
                     </text>
@@ -323,13 +358,21 @@ const softcaptions = {
 class SoftSkills extends Component {
     render () {
         return (
-            <div>
-                <h1>What I do</h1>
-                <RadarChart
-                    captions={softcaptions}
-                    data={softdata}
-                    size={450}
-                />
+            <div className={"skills"}>
+                <Container>
+                    <Col>
+                        <Row>
+                            <h1>What I do</h1>
+                        </Row>
+                        <Row>
+                            <RadarChart
+                            captions={softcaptions}
+                            data={softdata}
+                            size={450}
+                            />
+                        </Row>
+                    </Col>
+                </Container>
             </div>
         );
     }
@@ -337,13 +380,21 @@ class SoftSkills extends Component {
 class TechnicalSkills extends Component {
    render () {
         return (
-            <div>
-                <h1>What I know</h1>
-                <RadarChart
-                    captions={captions}
-                    data={data}
-                    size={450}
-                />
+            <div className={"skills"}>
+                <Container>
+                    <Col>
+                        <Row>
+                            <h1>What I Know</h1>
+                        </Row>
+                        <Row>
+                            <RadarChart
+                                captions={captions}
+                                data={data}
+                                size={450}
+                            />
+                        </Row>
+                    </Col>
+                </Container>
             </div>
         );
     }
@@ -357,6 +408,12 @@ class Contact extends Component {
                 <h4>{"Reach out to me on "}
                 <a href="https://www.linkedin.com/in/rckrieger/" target="_blank">Linkedin</a>
                 </h4>
+                <h4>{"See what I'm building on "}
+                    <a href="https://github.com/rckrieger" target="_blank">Github</a>
+                </h4>
+                <h4>{"Read what I'm have to say on "}
+                    <a href="https://medium.com/@rckrieger" target="_blank">Medium</a>
+                </h4>
             </div>
         );
     }
@@ -368,7 +425,9 @@ class TabDisplay extends Component {
         switch (this.props.name) {
             case "Home":
                 return (
+                    <div>
                     <HomeDisplay></HomeDisplay>
+                    </div>
                 );
             case "Work":
                 return (
@@ -412,7 +471,8 @@ class App extends Component {
     render() {
         const activePlace = this.state.activePlace;
         return (
-            <div>
+            <div class={"Nav"}>
+                <Navbar>
                 <Nav activeKey="/home">
                     {TABS.map((tab, index) => (
                         <Nav.Item
@@ -424,10 +484,13 @@ class App extends Component {
                         </Nav.Item>
                     ))}
                 </Nav>
+                </Navbar>
+
                 <TabDisplay
                     key={activePlace}
                     name={TABS[activePlace].name}
                 />
+
             </div>
         );
     }

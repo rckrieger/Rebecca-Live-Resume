@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.css";
 import {NavItem, Nav, Row, Col,Container, Tab, Tabs} from "react-bootstrap";
 import KeyboardVideoFile from "./Media/UncroppedAppDemo.mov";
@@ -6,11 +6,14 @@ import MoodBandVideoFile from "./Media/Moodband.mp4";
 import CodeCadetsVideoFile from "./Media/CodeCadetsDance.mp4";
 import ChickenDanceVideoFile from "./Media/chickendance.MOV";
 import Pointing from "./Media/CCpoints.jpg"
+import Animation from "./Media/Animation.pdf"
+import GodotVideo from "./Media/GodotVideo.mp4"
+import { Document, Page } from 'react-pdf';
 
 
 
 class MediaPart extends Component {
-    //switch below out
+
     render() {
         switch (this.props.media) {
             case "MoodBandVideoFile":
@@ -43,11 +46,39 @@ class MediaPart extends Component {
                     </video>
                 );
             }
-
+            case "Animation": {
+                return (
+                    <video width="480" height="270" controls  autoPlay loop muted>
+                        <source src={GodotVideo}/>
+                    </video>
+                );
+            }
             default:
                 return (
                     <p>Need to insert file</p>
                 );
+        }
+    }
+}
+
+
+class LinkPart extends Component {
+    render() {
+        switch (this.props.link) {
+            case null:
+                return (
+                    <div></div>
+                );
+            case "null":
+                return (
+                    <div></div>
+                );
+            default:
+                return(
+                    <div align="left">
+                        <a href={this.props.link} target="_blank">{this.props.link}</a>
+                    </div>)
+                ;
         }
     }
 }
@@ -73,9 +104,7 @@ class Project extends Component {
                                     <h3>About</h3>
                                     <p>{this.props.project.description}</p>
                                 </div>
-                                <div align="left">
-                                    <a href={this.props.project.link} target="_blank">{this.props.project.link}</a>
-                                </div>
+                                <LinkPart link = {this.props.project.link}></LinkPart>
                             </Row>
                             <Row>
                                 <div align="left">
@@ -85,7 +114,7 @@ class Project extends Component {
                             </Row>
                             <Row>
                                 <div align="left">
-                                    <h3>Skills</h3>
+                                    <h3>Skills Strengthened</h3>
                                     <ul>
                                         {this.props.project.skills.map((skill, index) =>
                                             (
