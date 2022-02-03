@@ -7,12 +7,15 @@ import CodeCadetsVideoFile from "./Media/CodeCadetsDance.mp4";
 import ChickenDanceVideoFile from "./Media/chickendance.MOV";
 import RadarChart from 'react-svg-radar-chart';
 import 'react-svg-radar-chart/build/css/index.css'
-import LittleMermaid from "./Media/LMdraft.png";
-import {Timeline, Container as TimelineContainer, YearContent, BodyContent, Section, Description,} from 'vertical-timeline-component-react';
-import Project from "./Project";
-
 import Animation from "./Media/Animation.pdf";
-//import "bootswatch/dist/lux/bootstrap.css";
+
+import Work from "./Work";
+import Home from "./Home";
+import Project from "./Project";
+import Skills from "./Skills";
+
+import Contact from "./Contact";
+import "bootswatch/dist/lux/bootstrap.css";
 
 const TABS = [
     {name: "Home"},
@@ -23,195 +26,7 @@ const TABS = [
     {name: "Contact"}];
 
 // constants
-// Home
-const MOTTO = "“I want to be where the people are”\n"
-const MOTTOCREDIT = "The Little Mermaid, and me building products \n"
-const BIO = "I love working on products that make people’s eyes light up. I’m a technical PM by experience; I " +
-    "design APIs for Windows at MSFT and was a SWE intern at Apple. My real passion is in HCI, " +
-    "especially accessibility and mixed reality. In college, I double majored in Software Engineering and Psychology." +
-    " Psych gave me a lens to understand users’ problems. Software engineering gave me a tool kit to solve them.\n"
-class HomeDisplay extends Component {
-    render() {
-        return(
-            <div class={"home"}>
-                <Container>
-                    <Col>
-                        <Row><h1>{MOTTO}</h1></Row>
-                        <Row><h2>{MOTTOCREDIT}</h2></Row>
-                        <Row><h3>{BIO}</h3></Row>
-                        <Row>
-                            <img src = {LittleMermaid}/>
-                        </Row>
-                    </Col>
-                </Container>
-            </div>
-        );
-    }
-}
 
-//Work
-const customTheme = {
-    yearColor: '#405b73',
-    lineColor: '#d0cdc4',
-    dotColor: '#262626',
-    borderDotColor: '#d0cdc4',
-    titleColor: '#405b73',
-    subtitleColor: '#bf9765',
-    textColor: '#262626',
-};
-class KeyBoardVideo extends Component {
-    render () {
-        return(
-                <video width="221" height="480" controls autoPlay loop muted>
-                    <source src={KeyboardVideoFile}/>
-                </video>
-        );
-    }
-}
-
-
-class JobDescription extends Component {
-    render() {
-        switch (this.props.name) {
-            case "Home":
-                return (
-                    <HomeDisplay></HomeDisplay>
-                );
-            default:
-                return (
-                    <WorkDisplay></WorkDisplay>
-                );
-        }
-    }
-}
-
-
-const SOFTKEY = "You know when you are using a Windows device or an iPhone in touch mode and the virtual keyboard " +
-    "pops up? We call it a SIP (Software Input Panel). One project I led was improving the animation of the SIP. " +
-    "In Windows 10, when you pulled up the SIP and the app window had to hop out of the way, their movements weren't" +
-    " in sync. This was an okay design back when touch was new, but now that users are accustomed to the seamless " +
-    "popping up of the sip on their iPhone, ours just looked wonky. By changing the eventing model we were able to " +
-    "sync the animation of the app window with the keyboard, giving users a more delightful experience. Right now " +
-    "our solution is limited to input pane aware apps (mostly UWPs), but a future release will fix the animation " +
-    "for unaware apps " + "too. I was responsible for spec writing, leading weekly syncs between my dev team and " +
-    "a partner team in Tokyo, and tracking the work in ADO (Microsoft's alternative to jira). "
-
-// Double check the dates
-class MSFTPM1 extends Component {
-    render() {
-        return(
-            <TimelineContainer>
-                <YearContent startDate='2019/08/05' currentYear />
-                <BodyContent>
-                    <Section title='Microsoft - Program Manager 1' font-size="+200 !important">
-                        <Description variant='subtitle' text='Developer Ecosystem and Platforms Team' />
-                            <Row>
-                                <Col>
-                                    <h4>Software Keyboard</h4>
-                                    <text>{SOFTKEY}</text>
-                                    <text>Impact</text>
-                                    <ul>
-                                        <li>test</li>
-                                    </ul>
-                                    <text>Learnings</text>
-                                    <ul>
-                                        <li>test</li>
-                                    </ul>
-                                </Col>
-                                <Col>
-                                    <KeyBoardVideo></KeyBoardVideo>
-                                </Col>
-                            </Row>
-                    </Section>
-                </BodyContent>
-            </TimelineContainer>
-        );
-    }
-}
-
-class MSFTPMIntern extends Component {
-    render() {
-        return(
-            <TimelineContainer>
-                <YearContent startDate='2018/06/14' endDate= '2018/09/05'/>
-                <BodyContent>
-                    <Section title='Microsoft - Program Manager Intern'>
-                        <Description variant='subtitle' text='Developer Ecosystem and Platforms Team' />
-                        <Description text= {BIO + BIO} />
-                        <Description text='Another description' />
-                    </Section>
-                </BodyContent>
-            </TimelineContainer>
-        );
-    }
-}
-
-class GoDaddy extends Component {
-    render() {
-        return(
-            <TimelineContainer>
-                <YearContent startDate='2017/06/14' endDate= '2017/09/05'/>
-                <BodyContent>
-                    <Section title='GoDaddy - Mobile Development Intern'>
-                        <Description variant='subtitle' text='ReactNative Mobile Dev Team' />
-                        <Description text='Description' />
-                        <Description text='Another description' />
-                    </Section>
-                </BodyContent>
-            </TimelineContainer>
-        );
-    }
-}
-
-
-class Apple extends Component {
-    render() {
-        return(
-            <TimelineContainer>
-                <YearContent startDate='2017/04/02' endDate= '2017/06/12'/>
-                <BodyContent>
-                    <Section title='Apple - SWE Intern'>
-                        <Description variant='subtitle' text='CoreOS Operations' />
-                        <Description text='Description' />
-                        <Description text='Another description' />
-                    </Section>
-                </BodyContent>
-            </TimelineContainer>
-        );
-    }
-}
-class MSFTExploreIntern extends Component {
-    render() {
-        return(
-            <TimelineContainer>
-                <YearContent startDate='2016/06/14' endDate= '2016/09/05'/>
-                <BodyContent>
-                    <Section title='Microsoft - Explore Intern'>
-                        <Description variant='subtitle' text='Outlook Data Storage' />
-                        <Description text='Description' />
-                        <Description text='Another description' />
-                    </Section>
-                </BodyContent>
-            </TimelineContainer>
-        );
-    }
-}
-class Ancestry extends Component {
-    render() {
-        return(
-            <TimelineContainer>
-                <YearContent startDate='2015/06/14' endDate= '2015/09/05'/>
-                <BodyContent>
-                    <Section title='Ancestry - Back-End Development Intern'>
-                        <Description variant='subtitle' text='SEO team' />
-                        <Description text='Description' />
-                        <Description text='Another description' />
-                    </Section>
-                </BodyContent>
-            </TimelineContainer>
-        );
-    }
-}
 
 var codeCadets = {
     name: "Code Cadets",
@@ -285,170 +100,25 @@ class ProjectsDisplay extends  Component{
 
 
 
-class WorkDisplay extends  Component{
-    render() {
-        return(
-            <div className={"work"}>
-                <div className={"work-head"}>
-                    <h1>Work History</h1>
-                </div>
-
-                <div style={{display: 'flex', justifyContent: 'center'}}>
-                    <text font-size="9"><i>Apologies for the odd font sizes, the timeline and its CSS are from an npm library w/o
-                    parameters for font size and it won't recompile with my CSS changes.
-                    </i>
-                    </text>
-                </div>
-                <Timeline theme={customTheme} dateFormat='ll'>
-                    <MSFTPM1></MSFTPM1>
-                    <MSFTPMIntern></MSFTPMIntern>
-                    <GoDaddy></GoDaddy>
-                    <Apple></Apple>
-                    <MSFTExploreIntern></MSFTExploreIntern>
-                    <Ancestry></Ancestry>
-                </Timeline>
-            </div>
-        );
-    }
-}
-
-
-
-//Skills section - consider rephrasing to "areas of expertise"
-const data = [
-    {
-        data: {
-            java: 0.9,
-            mobileDev: 0.5,
-            webDev: 0.7,
-            windowsDev: 0.6,
-            mixedReality: 0.5
-        },
-        meta: { color: 'red' }
-    }
-];
-const captions = {
-    // columns
-    webDev: 'WebDev (ReactJS + HTML)',
-    mixedReality: 'Mixed Reality',
-    windowsDev: 'Windows Development (Win32 + UWP)',
-    mobileDev: 'Mobile Development (SwiftUI + UIKit)',
-    java: 'Java Middleware'
-};
-const softdata = [
-    {
-        data: {
-            specWriting: 0.9,
-            marketResearching: 0.8,
-            conferenceSpeaking: 1,
-            emailWriting: 0.7,
-            speakingDev: 0.7
-        },
-        meta: { color: 'red' }
-    }
-];
-const softcaptions = {
-    // columns
-    specWriting: 'Spec Writing',
-    marketResearching: 'Market Researching',
-    conferenceSpeaking: 'Conference Speaking',
-    emailWriting: 'Email Writing',
-    speakingDev: 'Speaking Dev'
-};
-class SoftSkills extends Component {
-    render () {
-        return (
-            <div className={"skills"}>
-                <Container>
-                    <Col>
-                        <Row>
-                            <h1>What I do</h1>
-                        </Row>
-                        <Row>
-                            <RadarChart
-                            captions={softcaptions}
-                            data={softdata}
-                            size={450}
-                            />
-                        </Row>
-                    </Col>
-                </Container>
-            </div>
-        );
-    }
-}
-class TechnicalSkills extends Component {
-   render () {
-        return (
-            <div className={"skills"}>
-                <Container>
-                    <Col>
-                        <Row>
-                            <h1>What I Know</h1>
-                        </Row>
-                        <Row>
-                            <RadarChart
-                                captions={captions}
-                                data={data}
-                                size={450}
-                            />
-                        </Row>
-                    </Col>
-                </Container>
-            </div>
-        );
-    }
-}
-
-
-class Contact extends Component {
-    render () {
-        return (
-            <div>
-                <h4>{"Reach out to me on "}
-                <a href="https://www.linkedin.com/in/rckrieger/" target="_blank">Linkedin</a>
-                </h4>
-                <h4>{"See what I'm building on "}
-                    <a href="https://github.com/rckrieger" target="_blank">Github</a>
-                </h4>
-                <h4>{"Read what I'm have to say on "}
-                    <a href="https://medium.com/@rckrieger" target="_blank">Medium</a>
-                </h4>
-            </div>
-        );
-    }
-}
-
 //App Nav parts should change tabd
 class TabDisplay extends Component {
     render() {
         switch (this.props.name) {
             case "Home":
                 return (
-                    <div>
-                    <HomeDisplay></HomeDisplay>
-                    </div>
+                    <Home/>
                 );
             case "Work":
                 return (
-                    <WorkDisplay></WorkDisplay>
+                    <Work/>
                 );
             case "Skills":
                 return (
-                    <Container>
-                        <Row>
-                            <Col>
-                                <SoftSkills></SoftSkills>
-                            </Col>
-                            <Col>
-                                <TechnicalSkills></TechnicalSkills>
-                            </Col>
-                        </Row>
-                    </Container>
+                    <Skills/>
                 );
             case "Contact":
                 return (
-                    <Contact></Contact>
+                    <Contact/>
                 );
             case "Projects":
                 return (
