@@ -34,7 +34,21 @@ class MediaPart extends Component {
                     <video width="480" height="270" controls>
                         <source src={CodeCadetsVideoFile}/>
                     </video>
+                        <div>
+                            <text><i>
+                                The students' laptops were delayed in shipping, so for the first class I got the
+                                them giant sticky notes to program their instructors to dance, in a scratch-like drag
+                                and drop coding style.
+                            </i>
+                            </text>
+                        </div>
                     <img src = {Pointing} width="480" height="270"/>
+                        <div>
+                            <text><i>
+                                Students working after their laptops arrived
+                            </i>
+                            </text>
+                        </div>
                     </div>
                 );
             }

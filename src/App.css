@@ -834,6 +834,10 @@
   font-family: var(--bs-font-monospace) !important;
 }
 
+.contact {
+  font-family: "Nunito Sans";
+}
+
 .card {
   position: relative;
   display: -ms-flexbox;
@@ -874,6 +878,7 @@
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1rem 1rem;
+  text-align: center;
 }
 
 .card-title {

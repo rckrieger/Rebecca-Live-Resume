@@ -15,7 +15,6 @@ import Project from "./Project";
 import Skills from "./Skills";
 
 import Contact from "./Contact";
-import "bootswatch/dist/lux/bootstrap.css";
 
 const TABS = [
     {name: "Home"},
@@ -70,6 +69,25 @@ var godot = {
         "Game development"]
 };
 
+var moodband = {
+    name: "Moodband",
+    year: "2016",
+    media: "Moodband",
+    description: "As a kid, I had no filter. This was hard on friendships, so for AT&T's " +
+        "Hackathon, I worked on a wearable bracelet to help wearers read the room. It used colors to signal when a " +
+        "wearer so should be on alert or stop what they are saying, like a traffic signal. We used Watson APIs " +
+        " to turn the wearer's speech to text, and then used a tone analyzer on the text to give it a sentiment score." +
+        " The processing was done on a Raspberry Pi. " +
+        " I was responsible for project organization, pitching, and prototyping an accompanying iPhone app that could " +
+        "help the wearer set goals or notice historical trends. We thought this could potentially be a helpful " +
+        "tool for cognitive behavioral therapy.",
+    impact: "We were invited to pitch in the international semifinals. Unfortunately, the team was spread out all over " +
+        "California and I was at GHC the weekend the pitch was due, so our recorded pitch was lower quality than " +
+        "I would have hoped.",
+    skills: ["Project management",
+        "Invision prototyping"]
+};
+
 var chicken = {
     name: "Chicken Dance Robot",
     year: "2014",
@@ -91,6 +109,7 @@ class ProjectsDisplay extends  Component{
                 </div>
                 <Project project = {codeCadets}/>
                 <Project project = {godot}/>
+                <Project  project = {moodband}/>
                 <Project project = {chicken}/>
             </div>
         );

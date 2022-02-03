@@ -15,11 +15,11 @@ import Animation from "./Media/Animation.pdf";
 const data = [
     {
         data: {
-            java: 0.9,
-            mobileDev: 0.5,
-            webDev: 0.7,
-            windowsDev: 0.6,
-            mixedReality: 0.5
+            java: 0.8,
+            mobileDev: 0.6,
+            webDev: 0.8,
+            windowsDev: 0.4,
+            accessibility: 0.5
         },
         meta: { color: 'red' }
     }
@@ -27,19 +27,19 @@ const data = [
 const captions = {
     // columns
     webDev: 'WebDev (ReactJS + HTML)',
-    mixedReality: 'Mixed Reality',
+    accessibility: 'Accessibility',
     windowsDev: 'Windows Development (Win32 + UWP)',
     mobileDev: 'Mobile Development (SwiftUI + UIKit)',
-    java: 'Java Middleware'
+    java: 'Java'
 };
 const softdata = [
     {
         data: {
             specWriting: 0.9,
-            marketResearching: 0.8,
+            marketResearching: 0.75,
             conferenceSpeaking: 1,
             emailWriting: 0.7,
-            speakingDev: 0.7
+            speakingDev: 0.8
         },
         meta: { color: 'red' }
     }
